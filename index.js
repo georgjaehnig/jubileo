@@ -4,7 +4,8 @@ var born = new Date(1980, 2, 20);
 
 var jubilees = {};
 
-var days = [1000,2000,3000,4000,5000,6000,7000,8000,9000,10000,11000,12000,13000,14000,15000,16000,17000,18000,19000,20000];
+var days = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000,10000,
+	         11000,12000,13000,14000,15000,16000,17000,18000,19000,20000];
 for (var day of days) {
 	//var period = zero;
 	var jubilee = new Date(born);
@@ -13,7 +14,7 @@ for (var day of days) {
 }
 
 //var jubilees = {};
-var months = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500];
+var months = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 750, 800, 850, 900, 950, 1000];
 for (var month of months) {
 	//var period = zero;
 	var jubilee = new Date(born);
