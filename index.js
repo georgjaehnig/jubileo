@@ -1,7 +1,6 @@
 'use strict'
 
 var born = new Date(1980, 2, 20);
-var today = new Date();
 
 var jubilees = {};
 
