@@ -1,6 +1,18 @@
 'use strict'
 
-var born = new Date(1980, 2, 20);
+if (process.argv.length != 3) {
+	console.log('Usage: node index.js 1970-01-01');
+	process.exit()
+}
+
+var bornString = process.argv[2];
+
+if (isNaN(Date.parse(bornString))) {
+	console.log(bornString + ' is not a valid date. Please use the format 1970-01-01');
+	process.exit()
+}
+
+var born = new Date(bornString);
 
 var jubilees = {};
 
