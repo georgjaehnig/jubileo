@@ -14,7 +14,6 @@ for (var day of days) {
 	jubilees[jubilee.getTime()] = day + ' days';
 }
 
-//var jubilees = {};
 var months = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 750, 800, 850, 900, 950, 1000];
 for (var month of months) {
 	//var period = zero;
