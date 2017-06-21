@@ -9,12 +9,12 @@ $(document).ready(function () {
 });
 
 function downloadICal() {
-	var header = `BEGIN:VCALENDAR
+  var header = `BEGIN:VCALENDAR
 X-WR-CALNAME:Jubilees
 VERSION:2.0
 `;
   var events = ``;
-	var footer = `END:VCALENDAR`;
+  var footer = `END:VCALENDAR`;
   var bornString = $('#born').val();
   var born = new Date(bornString);
   born = createDateAsUTC(born);
@@ -23,15 +23,15 @@ VERSION:2.0
   for (var jubileeTime of jubileeTimes) {
     var jubilee = new Date();
     jubilee.setTime(jubileeTime);
-		var event = `BEGIN:VEVENT
+    var event = `BEGIN:VEVENT
 DTSTART:` + jubilee.toISOString().substring(0,10).replace(/-/g, '') + `
 SUMMARY:` + jubilees[jubileeTime] + `
 END:VEVENT
 `;
     events = events + event;
   }
-	var text = header + events + footer;
-	download('jubilees.ics', text);
+  var text = header + events + footer;
+  download('jubilees.ics', text);
 }
 
 // Source: https://stackoverflow.com/a/18197341/52023
