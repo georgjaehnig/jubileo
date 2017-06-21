@@ -17,6 +17,7 @@ VERSION:2.0
 	var footer = `END:VCALENDAR`;
   var bornString = $('#born').val();
   var born = new Date(bornString);
+  born = createDateAsUTC(born);
   var jubilees = getJubilees(born);
   var jubileeTimes = getJubileeTimes(jubilees);
   for (var jubileeTime of jubileeTimes) {
@@ -54,9 +55,15 @@ function getSearchParams(k){
  return k?p[k]:p;
 }
 
+// From: https://stackoverflow.com/a/14006555/52023
+function createDateAsUTC(date) {
+    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()));
+}
+
 function update() {
   var bornString = $('#born').val();
   var born = new Date(bornString);
+  born = createDateAsUTC(born);
   var jubilees = getJubilees(born);
   var jubileeTimes = getJubileeTimes(jubilees);
   $('#jubilees').empty();
