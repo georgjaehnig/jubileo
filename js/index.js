@@ -8,6 +8,45 @@ $(document).ready(function () {
   update();
 });
 
+function downloadICal() {
+	var header = `BEGIN:VCALENDAR
+X-WR-CALNAME:Jubilees
+VERSION:2.0
+`;
+  var events = ``;
+	var footer = `END:VCALENDAR`;
+  var bornString = $('#born').val();
+  var born = new Date(bornString);
+  var jubilees = getJubilees(born);
+  var jubileeTimes = getJubileeTimes(jubilees);
+  for (var jubileeTime of jubileeTimes) {
+    var jubilee = new Date();
+    jubilee.setTime(jubileeTime);
+		var event = `BEGIN:VEVENT
+DTSTART:` + jubilee.toISOString().substring(0,10).replace(/-/g, '') + `
+SUMMARY:` + jubilees[jubileeTime] + `
+END:VEVENT
+`;
+    events = events + event;
+  }
+	var text = header + events + footer;
+	download('jubilees.ics', text);
+}
+
+// Source: https://stackoverflow.com/a/18197341/52023
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
 // From https://stackoverflow.com/a/26744533/52023
 function getSearchParams(k){
  var p={};
