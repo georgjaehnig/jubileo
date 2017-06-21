@@ -1,5 +1,6 @@
 'use strict'
 
+// Help.
 if (process.argv.length != 3) {
 	console.log('Usage: node index.js 1970-01-01');
 	process.exit()
@@ -7,15 +8,16 @@ if (process.argv.length != 3) {
 
 var bornString = process.argv[2];
 
+// Error: not a valid format.
 if (isNaN(Date.parse(bornString))) {
 	console.log(bornString + ' is not a valid date. Please use the format 1970-01-01');
 	process.exit()
 }
 
 var born = new Date(bornString);
-
 var jubilees = {};
 
+// Add day jubilees.
 var days = [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000,10000,
            11000,12000,13000,14000,15000,16000,17000,18000,19000,20000,
            21000,22000,23000,24000,25000,26000,27000,28000,29000,30000,
@@ -28,6 +30,7 @@ for (var day of days) {
   jubilees[jubilee.getTime()] = day + ' days';
 }
 
+// Add week jubilees.
 var weeks = [50, 100, 150, 200, 250, 300, 400, 500, 600, 750, 800, 900, 1000,
             1100,1200,1300,1400,1500,1600,1700,1800,1900,2000,
             2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,
@@ -38,6 +41,7 @@ for (var week of weeks) {
   jubilees[jubilee.getTime()] = week + ' weeks';
 }
 
+// Add month jubilees.
 var months = [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 750, 800, 850, 900, 950, 1000];
 for (var month of months) {
   var jubilee = new Date(born);
@@ -45,8 +49,10 @@ for (var month of months) {
   jubilees[jubilee.getTime()] = month + ' months';
 }
 
+// Sort jubilees by time.
 var jubileeTimes = Object.keys(jubilees).sort(function (a, b) {  return a - b;  });
 
+// Output jubilees sorted.
 for (var jubileeTime of jubileeTimes) {
   var jubilee = new Date();
   jubilee.setTime(jubileeTime);
