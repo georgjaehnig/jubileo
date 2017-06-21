@@ -7,6 +7,7 @@ function update() {
   var born = new Date(bornString);
 	var jubilees = getJubilees(born);
 	var jubileeTimes = getJubileeTimes(jubilees);
+  $('#jubilees').empty();
   for (var jubileeTime of jubileeTimes) {
     var jubilee = new Date();
     jubilee.setTime(jubileeTime);
