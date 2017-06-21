@@ -1,6 +1,19 @@
 $(document).ready(function () {
-	update();
+  var dateString = getSearchParams('date');
+  if (!isNaN(Date.parse(dateString))) {
+    var date = new Date(dateString);
+    var dateISOSubString = date.toISOString().substring(0,10);
+    $('#born').val(dateISOSubString);
+  }
+  update();
 });
+
+// From https://stackoverflow.com/a/26744533/52023
+function getSearchParams(k){
+ var p={};
+ location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){p[k]=v})
+ return k?p[k]:p;
+}
 
 function update() {
   var bornString = $('#born').val();
