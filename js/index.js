@@ -3,15 +3,15 @@ $(document).ready(function () {
 });
 
 function update() {
-	var bornString = $('#born').val();
+  var bornString = $('#born').val();
   var born = new Date(bornString);
-	var jubilees = getJubilees(born);
-	var jubileeTimes = getJubileeTimes(jubilees);
+  var jubilees = getJubilees(born);
+  var jubileeTimes = getJubileeTimes(jubilees);
   $('#jubilees').empty();
   for (var jubileeTime of jubileeTimes) {
     var jubilee = new Date();
     jubilee.setTime(jubileeTime);
-		$('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</>'));
+    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</>'));
   }
 }
 function getJubilees(born) {
@@ -37,7 +37,7 @@ function getJubilees(born) {
               2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,
               3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,
               111,222,333,444,555,666,777,888,999,
-		          1111,2222,3333,4444];
+              1111,2222,3333,4444];
   for (var week of weeks) {
     var jubilee = new Date(born);
     jubilee.setDate(jubilee.getDate() + week * 7);
@@ -52,11 +52,11 @@ function getJubilees(born) {
     jubilee.setMonth(jubilee.getMonth() + month);
     jubilees[jubilee.getTime()] = month + ' months';
   }
-	return jubilees;
+  return jubilees;
 }
 
 function getJubileeTimes(jubilees) {
   // Sort jubilees by time.
   var jubileeTimes = Object.keys(jubilees).sort(function (a, b) {  return a - b;  });
-	return jubileeTimes;
+  return jubileeTimes;
 }
