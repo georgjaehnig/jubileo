@@ -103,7 +103,6 @@ function getJubileeTimes(jubilees) {
 // Returns nested object, like:
 // jubileesPerYear[1980][1296435600000] = '1000 days'.
 function getJubileesPerYear(jubilees, jubileeTimes) {
-
 	var jubileesPerYear = {};
   for (var jubileeTime of jubileeTimes) {
     var jubilee = new Date();
