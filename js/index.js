@@ -16,7 +16,7 @@ function update() {
   var jubilees = getJubilees(born);
   var jubileeTimes = getJubileeTimes(jubilees);
   var jubileesPerYear = getJubileesPerYear(jubilees, jubileeTimes);
-  $('#jubilees').empty();
+  $('ul.jubilees').empty();
   for (var year in jubileesPerYear) {
     var jubileesOfYearHTML = '';
     jubileesOfYearHTML += '<li class="year"><span class="year">' + year + '</span><ul class="jubilees-year list-unstyled">';
@@ -26,7 +26,7 @@ function update() {
       jubileesOfYearHTML += '<li><span class="date">' + (jubilee.getUTCMonth()+1) + '/' + jubilee.getUTCDate() + '</span> <span class="description">' + jubileesPerYear[year][jubileeTime]+ '</span></li>';
     }
     jubileesOfYearHTML += '</li>';
-    $('#jubilees').append($(jubileesOfYearHTML));
+    $('ul.jubilees').append($(jubileesOfYearHTML));
   }
 }
 
