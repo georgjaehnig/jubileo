@@ -4,8 +4,9 @@
     max-width: 730px;
   }
 }
-.year {
-	width: 10em;
+#jubilees {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  column-count: 5;
 }
 .year {
 	display: inline-block;
