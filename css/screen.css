@@ -10,6 +10,13 @@
 .year {
 	display: inline-block;
 	width: 5em;
+	font-weight: bold;
+}
+.date {
+	display: inline-block;
+	width: 3em;
+	font-weight: bold;
+	text-align: right;
 }
 ul.jubilees-year {
 	display: inline;
