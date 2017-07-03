@@ -11,6 +11,8 @@
 	display: inline-block;
 	width: 5em;
 	font-weight: bold;
+	text-align: center;
+	font-size: 1.5em;
 }
 .date {
 	display: inline-block;
