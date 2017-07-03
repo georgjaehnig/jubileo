@@ -35,6 +35,7 @@
           <p class="lead">Calculate jubilees of months, weeks and days from a birthday.</p>
 
           <form class="form-inline" action="?">
+            <input type="text" class="form-control" id="name" name="name" value="John"/ >
             <input type="date" class="form-control" id="born" name="date" value="1990-01-01"/ >
             <button type="submit" class="btn btn-primary" onclick="update();">Update</button>
             <button type="button" class="btn btn-success" onclick="downloadICal();">Download iCal</button>
@@ -42,6 +43,8 @@
         </div>
       </div>
 
+      <h2 class="name"></h2>
+      <h3 class="born"></h3>
       <ul class="jubilees list-unstyled"></ul>
 
       <footer class="footer hidden-print">

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  var name = getSearchParams('name');
+  $('#name').val(name);
   var dateString = getSearchParams('date');
   if (!isNaN(Date.parse(dateString))) {
     var date = new Date(dateString);
@@ -28,6 +30,9 @@ function update() {
     jubileesOfYearHTML += '</li>';
     $('ul.jubilees').append($(jubileesOfYearHTML));
   }
+  var name = $('#name').val();
+  $('h2.name').html(name);
+  $('h3.born').html('*' + born.getFullYear() + '-' + (born.getUTCMonth()+1) + '-' + born.getDate());
 }
 
 

@@ -4,9 +4,18 @@
     max-width: 730px;
   }
 }
+h2.name {
+  font-family: Georgia, Times, "Times New Roman", serif;
+	display: inline-block;
+}
+h3.born {
+  font-family: Georgia, Times, "Times New Roman", serif;
+	display: inline-block;
+}
 ul.jubilees {
   font-family: Georgia, Times, "Times New Roman", serif;
   column-count: 5;
+	clear: both;
 }
 li.year {
   margin-bottom: 0.5em;
