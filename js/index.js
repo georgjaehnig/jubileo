@@ -14,6 +14,7 @@ $(document).ready(function () {
 
 
 function update() {
+  moment.locale('de');
   var bornString = $('#born').val();
   var born = new Date(bornString);
   born = createDateAsUTC(born);
@@ -27,14 +28,15 @@ function update() {
     for (var jubileeTime in jubileesPerYear[year]) {
       var jubilee = new Date();
       jubilee.setTime(jubileeTime);
-      jubileesOfYearHTML += '<li><span class="date">' + (jubilee.getUTCMonth()+1) + '/' + jubilee.getUTCDate() + '</span> <span class="description">' + jubileesPerYear[year][jubileeTime]+ '</span></li>';
+      jubileesOfYearHTML += '<li><span class="date">' + moment(jubilee).format('D MMM') + '</span> <span class="description">' + jubileesPerYear[year][jubileeTime]+ '</span></li>';
     }
     jubileesOfYearHTML += '</li>';
     $('ul.jubilees').append($(jubileesOfYearHTML));
   }
   var name = $('#name').val();
   $('h2.name').html(name);
-  $('h3.born').html('*' + born.getFullYear() + '-' + (born.getUTCMonth()+1) + '-' + born.getDate());
+  var bornOutput = moment(born).format('LL');
+  $('h3.born').html(bornOutput);
 }
 
 
