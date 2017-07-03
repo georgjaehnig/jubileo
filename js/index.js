@@ -19,13 +19,13 @@ function update() {
   $('#jubilees').empty();
   for (var year in jubileesPerYear) {
     var jubileesOfYearHTML = '';
-    jubileesOfYearHTML += '<div class="col-xs-2"><span class="year">' + year + '</span><ul class="jubilees-year list-unstyled">';
+    jubileesOfYearHTML += '<li><span class="year">' + year + '</span><ul class="jubilees-year list-unstyled">';
     for (var jubileeTime in jubileesPerYear[year]) {
       var jubilee = new Date();
       jubilee.setTime(jubileeTime);
       jubileesOfYearHTML += '<li><span class="date">' + jubilee.getUTCMonth() + '/' + jubilee.getUTCDate() + '</span> <span class="description">' + jubileesPerYear[year][jubileeTime]+ '</span></li>';
     }
-    jubileesOfYearHTML += '</div>';
+    jubileesOfYearHTML += '</li>';
     $('#jubilees').append($(jubileesOfYearHTML));
   }
 }
