@@ -19,7 +19,7 @@ function update() {
   $('#jubilees').empty();
   for (var year in jubileesPerYear) {
     var jubileesOfYearHTML = '';
-    jubileesOfYearHTML += '<li><span class="year">' + year + '</span><ul class="jubilees-year list-unstyled">';
+    jubileesOfYearHTML += '<li class="year"><span class="year">' + year + '</span><ul class="jubilees-year list-unstyled">';
     for (var jubileeTime in jubileesPerYear[year]) {
       var jubilee = new Date();
       jubilee.setTime(jubileeTime);
