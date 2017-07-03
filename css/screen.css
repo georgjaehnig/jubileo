@@ -4,3 +4,17 @@
     max-width: 730px;
   }
 }
+.year {
+	width: 10em;
+}
+.year {
+	display: inline-block;
+	width: 5em;
+}
+ul.jubilees-year {
+	display: inline;
+}
+ul.jubilees-year li {
+	display: inline-block;
+	width: 10em;
+}
