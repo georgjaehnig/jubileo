@@ -100,6 +100,23 @@ function getJubileeTimes(jubilees) {
   return jubileeTimes;
 }
 
+// Returns nested object, like:
+// jubileesPerYear[1980][1296435600000] = '1000 days'.
+function getJubileesPerYear(jubilees, jubileeTimes) {
+
+	var jubileesPerYear = {};
+  for (var jubileeTime of jubileeTimes) {
+    var jubilee = new Date();
+    jubilee.setTime(jubileeTime);
+		var year = jubilee.getFullYear();
+    if (!(year in jubileesPerYear)) {
+			jubileesPerYear[year] = {};
+		}
+		jubileesPerYear[year][jubileeTime] = jubilees[jubileeTime];
+  }
+	return jubileesPerYear;
+}
+
 // Helpers ====================================================================
 
 // Source: https://stackoverflow.com/a/18197341/52023
