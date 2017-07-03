@@ -15,11 +15,18 @@ function update() {
   born = createDateAsUTC(born);
   var jubilees = getJubilees(born);
   var jubileeTimes = getJubileeTimes(jubilees);
+  var jubileesPerYear = getJubileesPerYear(jubilees, jubileeTimes);
   $('#jubilees').empty();
-  for (var jubileeTime of jubileeTimes) {
-    var jubilee = new Date();
-    jubilee.setTime(jubileeTime);
-    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</li>'));
+  for (var year in jubileesPerYear) {
+    var jubileesOfYearHTML = '' ;
+    jubileesOfYearHTML += '<li>' + year + '<ul>';
+    for (var jubileeTime in jubileesPerYear[year]) {
+      var jubilee = new Date();
+      jubilee.setTime(jubileeTime);
+      jubileesOfYearHTML += '<li>' + jubilee.toDateString() + ' ' + jubileesPerYear[year][jubileeTime]+ '</li>';
+    }
+    jubileesOfYearHTML += '</ul>';
+    $('#jubilees').append($(jubileesOfYearHTML));
   }
 }
 
