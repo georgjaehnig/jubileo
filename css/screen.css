@@ -6,28 +6,28 @@
 }
 h2.name {
   font-family: Georgia, Times, "Times New Roman", serif;
-	display: inline-block;
+  display: inline-block;
 }
 h3.born {
   font-family: Georgia, Times, "Times New Roman", serif;
-	display: inline-block;
+  display: inline-block;
 }
 ul.jubilees {
   font-family: Georgia, Times, "Times New Roman", serif;
   column-count: 5;
-	clear: both;
+  clear: both;
 }
 li.year {
   margin-bottom: 0.5em;
   -webkit-column-break-inside: avoid;
 }
 span.year {
-	font-weight: bold;
-	font-size: 1.2em;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 .date {
-	display: inline-block;
-	width: 3em;
-	font-weight: bold;
-	text-align: right;
+  display: inline-block;
+  width: 3em;
+  font-weight: bold;
+  text-align: right;
 }
