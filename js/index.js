@@ -83,7 +83,7 @@ function getJubilees(born) {
               2100,2200,2300,2400,2500,2600,2700,2800,2900,3000,
               3100,3200,3300,3400,3500,3600,3700,3800,3900,4000,
               111,222,333,444,555,666,777,888,999,
-              1111,2222,3333,4444];
+              1111,2222,3333];
   for (var week of weeks) {
     var jubilee = new Date(born);
     jubilee.setDate(jubilee.getDate() + week * 7);
