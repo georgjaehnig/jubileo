@@ -19,7 +19,7 @@ function update() {
   for (var jubileeTime of jubileeTimes) {
     var jubilee = new Date();
     jubilee.setTime(jubileeTime);
-    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</>'));
+    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</li>'));
   }
 }
 
