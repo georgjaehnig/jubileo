@@ -23,7 +23,7 @@ function update() {
     for (var jubileeTime in jubileesPerYear[year]) {
       var jubilee = new Date();
       jubilee.setTime(jubileeTime);
-      jubileesOfYearHTML += '<li>' + jubilee.toDateString() + ' ' + jubileesPerYear[year][jubileeTime]+ '</li>';
+      jubileesOfYearHTML += '<li>' + jubilee.getUTCDate() + '.' + jubilee.getUTCMonth() + '. ' + jubileesPerYear[year][jubileeTime]+ '</li>';
     }
     jubileesOfYearHTML += '</ul>';
     $('#jubilees').append($(jubileesOfYearHTML));
