@@ -12,7 +12,7 @@
 	width: 5em;
 	font-weight: bold;
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 .date {
 	display: inline-block;
@@ -25,5 +25,5 @@ ul.jubilees-year {
 }
 ul.jubilees-year li {
 	display: inline-block;
-	width: 10em;
+	width: 12em;
 }
