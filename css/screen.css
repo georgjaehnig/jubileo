@@ -21,10 +21,3 @@ span.year {
 	font-weight: bold;
 	text-align: right;
 }
-ul.jubilees-year {
-	display: inline;
-}
-ul.jubilees-year li {
-	display: inline-block;
-	width: 12em;
-}
