@@ -8,6 +8,22 @@ $(document).ready(function () {
   update();
 });
 
+
+function update() {
+  var bornString = $('#born').val();
+  var born = new Date(bornString);
+  born = createDateAsUTC(born);
+  var jubilees = getJubilees(born);
+  var jubileeTimes = getJubileeTimes(jubilees);
+  $('#jubilees').empty();
+  for (var jubileeTime of jubileeTimes) {
+    var jubilee = new Date();
+    jubilee.setTime(jubileeTime);
+    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</>'));
+  }
+}
+
+
 function downloadICal() {
   var header = `BEGIN:VCALENDAR
 X-WR-CALNAME:Jubilees
@@ -34,45 +50,9 @@ END:VEVENT
   download('jubilees.ics', text);
 }
 
-// Source: https://stackoverflow.com/a/18197341/52023
-function download(filename, text) {
-  var element = document.createElement('a');
-  element.setAttribute('href', 'data:text/calendar;charset=utf-8,' + encodeURIComponent(text));
-  element.setAttribute('download', filename);
 
-  element.style.display = 'none';
-  document.body.appendChild(element);
+// Get dates ==================================================================
 
-  element.click();
-
-  document.body.removeChild(element);
-}
-
-// From https://stackoverflow.com/a/26744533/52023
-function getSearchParams(k){
- var p={};
- location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){p[k]=v})
- return k?p[k]:p;
-}
-
-// From: https://stackoverflow.com/a/14006555/52023
-function createDateAsUTC(date) {
-    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()));
-}
-
-function update() {
-  var bornString = $('#born').val();
-  var born = new Date(bornString);
-  born = createDateAsUTC(born);
-  var jubilees = getJubilees(born);
-  var jubileeTimes = getJubileeTimes(jubilees);
-  $('#jubilees').empty();
-  for (var jubileeTime of jubileeTimes) {
-    var jubilee = new Date();
-    jubilee.setTime(jubileeTime);
-    $('#jubilees').append($('<li>' + jubilee.toDateString() + ' ' + jubilees[jubileeTime]+ '</>'));
-  }
-}
 function getJubilees(born) {
 
   var jubilees = {};
@@ -118,4 +98,32 @@ function getJubileeTimes(jubilees) {
   // Sort jubilees by time.
   var jubileeTimes = Object.keys(jubilees).sort(function (a, b) {  return a - b;  });
   return jubileeTimes;
+}
+
+// Helpers ====================================================================
+
+// Source: https://stackoverflow.com/a/18197341/52023
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/calendar;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+// From https://stackoverflow.com/a/26744533/52023
+function getSearchParams(k){
+ var p={};
+ location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){p[k]=v})
+ return k?p[k]:p;
+}
+
+// From: https://stackoverflow.com/a/14006555/52023
+function createDateAsUTC(date) {
+    return new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()));
 }
