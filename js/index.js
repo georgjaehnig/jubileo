@@ -1,6 +1,8 @@
 $(document).ready(function () {
   var name = getSearchParams('name');
-  $('#name').val(name);
+  if (name) {
+    $('#name').val(name);
+  }
   var dateString = getSearchParams('date');
   if (!isNaN(Date.parse(dateString))) {
     var date = new Date(dateString);

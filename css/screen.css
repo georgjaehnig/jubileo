@@ -7,15 +7,20 @@
 h2.name {
   font-family: Georgia, Times, "Times New Roman", serif;
   display: inline-block;
+  margin-right: 0.3em;
+  font-size: 4em;
 }
 h3.born {
   font-family: Georgia, Times, "Times New Roman", serif;
   display: inline-block;
+  font-size: 2em;
+  text-align: right;
 }
 ul.jubilees {
   font-family: Georgia, Times, "Times New Roman", serif;
   column-count: 5;
   clear: both;
+  margin-top: 1em;
 }
 li.year {
   margin-bottom: 0.5em;
