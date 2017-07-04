@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 
 function update() {
-  moment.locale('de');
+  moment.locale('en');
   var bornString = $('#born').val();
   var born = new Date(bornString);
   born = createDateAsUTC(born);
