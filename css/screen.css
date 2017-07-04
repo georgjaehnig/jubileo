@@ -39,8 +39,10 @@ span.date {
   white-space: nowrap;
   font-weight: bold;
   text-align: right;
+  font-size: 0.9em;
 }
 span.description {
   display: inline-block;
   white-space: nowrap;
+  font-size: 0.9em;
 }
