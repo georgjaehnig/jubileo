@@ -3,6 +3,10 @@ $(document).ready(function () {
   if (name) {
     $('#name').val(name);
   }
+  var locale = getSearchParams('locale');
+  if (locale) {
+    $('#locale').val(locale);
+  }
   var dateString = getSearchParams('date');
   if (!isNaN(Date.parse(dateString))) {
     var date = new Date(dateString);
@@ -14,7 +18,8 @@ $(document).ready(function () {
 
 
 function update() {
-  moment.locale('en');
+  var locale = $('#locale').val();
+  moment.locale(locale);
   var bornString = $('#born').val();
   var born = new Date(bornString);
   born = createDateAsUTC(born);
