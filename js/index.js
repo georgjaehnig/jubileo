@@ -83,6 +83,11 @@ function getJubilees(born) {
 			'days': 'days',
 			'weeks': 'weeks',
 			'months': 'months',
+		},
+		'pl': {
+			'days': 'dni',
+			'weeks': 'tygodni',
+			'months': 'miesięcy',
 		}
 	}
 
