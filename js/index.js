@@ -71,6 +71,21 @@ END:VEVENT
 
 function getJubilees(born) {
 
+  var locale = moment.locale(); 
+
+	var units = {
+		'de': {
+			'days': 'Tage',
+			'weeks': 'Wochen',
+			'months': 'Monate',
+		},
+		'en': {
+			'days': 'days',
+			'weeks': 'weeks',
+			'months': 'months',
+		}
+	}
+
   var jubilees = {};
   
   // Add day jubilees.
@@ -83,7 +98,7 @@ function getJubilees(born) {
   for (var day of days) {
     var jubilee = new Date(born);
     jubilee.setDate(jubilee.getDate() + day);
-    jubilees[jubilee.getTime()] = day + ' days';
+    jubilees[jubilee.getTime()] = day + ' ' + units[locale]['days'];
   }
   
   // Add week jubilees.
@@ -96,7 +111,7 @@ function getJubilees(born) {
   for (var week of weeks) {
     var jubilee = new Date(born);
     jubilee.setDate(jubilee.getDate() + week * 7);
-    jubilees[jubilee.getTime()] = week + ' weeks';
+    jubilees[jubilee.getTime()] = week + ' ' + units[locale]['weeks'];
   }
   
   // Add month jubilees.
@@ -105,7 +120,7 @@ function getJubilees(born) {
   for (var month of months) {
     var jubilee = new Date(born);
     jubilee.setMonth(jubilee.getMonth() + month);
-    jubilees[jubilee.getTime()] = month + ' months';
+    jubilees[jubilee.getTime()] = month + ' ' + units[locale]['months'];
   }
   return jubilees;
 }
