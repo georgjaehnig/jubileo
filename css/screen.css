@@ -35,7 +35,7 @@ span.year {
 }
 span.date {
   display: inline-block;
-  min-width: 3.5em;
+  min-width: 3.3em;
   white-space: nowrap;
   font-weight: bold;
   text-align: right;
