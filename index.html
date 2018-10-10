@@ -40,9 +40,11 @@
           <form class="form-inline" action="?">
             <input type="text" class="form-control" id="name" name="name" value="John"/ >
             <input type="date" class="form-control" id="born" name="date" value="1990-01-01"/ >
+            <!-- 	<input type="datetime-local" class="form-control" id="born" name="date" value="1990-01-01T12:00"/ > -->
             <select class="form-control" id="locale" name="locale" / >
               <option value="en">English</option>
               <option value="de">Deutsch</option>
+              <option value="eo">Esperanto</option>
             </select>
             <button type="submit" class="btn btn-primary" onclick="update();">Update</button>
             <button type="button" class="btn btn-success" onclick="downloadICal();">Download iCal</button>

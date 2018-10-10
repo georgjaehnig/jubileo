@@ -83,17 +83,23 @@ function getJubilees(born) {
 			'days': 'Tage',
 			'weeks': 'Wochen',
 			'months': 'Monate',
+			'hours': 'Stunden',
+			'minutes': 'Minuten',
 		},
 		'en': {
 			'days': 'days',
 			'weeks': 'weeks',
 			'months': 'months',
+			'hours': 'hours',
+			'minutes': 'minutes',
 		},
 		'pl': {
 			'days': 'dni',
 			'weeks': 'tygodni',
 			'months': 'miesięcy',
-		}
+			'hours': 'godzin',
+			'minutes': 'minut',
+		},
 	}
 
   var jubilees = {};
@@ -132,7 +138,26 @@ function getJubilees(born) {
     jubilee.setMonth(jubilee.getMonth() + month);
     jubilees[jubilee.getTime()] = month + ' ' + units[locale]['months'];
   }
+
   return jubilees;
+
+  // Not implemented for now.
+
+  var jubilees = {};
+	// 80 years max:
+	// 750 000 hours
+	// 50 000 000 minutes
+  // Add hour jubilees.
+  var hours = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 
+               11111, 22222, 33333, 44444, 55555, 66666, 77777, 88888, 99999, 111111,
+		           100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000,
+	              ];
+  for (var hour of hours) {
+    var jubilee = new Date(born);
+    jubilee.setHours(jubilee.getHours() + hour);
+    jubilees[jubilee.getTime()] = hour + ' ' + units[locale]['hours'];
+  }
+
 }
 
 function getJubileeTimes(jubilees) {
