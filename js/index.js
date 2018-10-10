@@ -100,6 +100,13 @@ function getJubilees(born) {
 			'hours': 'godzin',
 			'minutes': 'minut',
 		},
+		'eo': {
+			'days': 'tagoj',
+			'weeks': 'semajnoj',
+			'months': 'monatoj',
+			'hours': 'horoj',
+			'minutes': 'minutoj',
+		},
 	}
 
   var jubilees = {};
