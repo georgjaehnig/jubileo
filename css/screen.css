@@ -18,6 +18,7 @@ h3.born {
 }
 ul.jubilees {
   font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 0.9em;
   column-count: 5;
   clear: both;
   margin-top: 1em;
